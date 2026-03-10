@@ -1,17 +1,24 @@
 # HR Resource Query Chatbot
 
 ## Overview
-An AI-powered HR assistant chatbot that helps HR teams find employees by answering natural language queries about skills, experience, and project history. The system uses semantic search (RAG) and a modern chat UI to make HR resource allocation fast and intuitive. All LLM generation is performed locally using Llama via Ollama.
+The HR Resource Query Chatbot is an AI-powered assistant that helps HR teams quickly identify suitable employees using natural language queries. Instead of manually searching through employee records, users can ask questions about skills, experience, projects, or availability.
+
+The system uses **semantic search (RAG)** to retrieve relevant employee profiles and generates clear recommendations using a **local Llama model via Ollama**. The frontend is built with Streamlit while the backend runs on FastAPI.
+
+---
 
 ## Features
-- Search employees by skills, experience, projects, and availability
-- Natural language chat interface (Streamlit) with colored UI and message bubbles
-- FastAPI backend with RAG (Retrieval-Augmented Generation) logic
-- 30+ diverse employee profiles for realistic HR queries
-- Clear, readable candidate recommendations
-- Customizable UI (colors, layout)
-- **Local LLM generation with Llama via Ollama (no cloud API required)**
-- **Advanced prompt engineering for detailed, comparative, and natural responses**
+
+- Natural language employee search
+- Conversational chat interface using Streamlit
+- FastAPI backend for query processing
+- Semantic search using sentence-transformers
+- AI-generated candidate recommendations
+- Local LLM inference using **Llama via Ollama**
+- Structured API responses
+- 30+ employee profiles for testing HR queries
+
+---
 
 ## Architecture
 ```
@@ -56,13 +63,12 @@ User (Browser)
    ```bash
    uvicorn backend.main:app --reload
    ```
-   The API will be available at http://localhost:8000
 5. **Run the frontend (Streamlit)**
    ```bash
    streamlit run frontend/app.py
    ```
-   The chat UI will open in your browser at http://localhost:8501
-
+**Output (Chat screen)**
+![Chatbot UI](docs/chatbot-ui.png)
 ## API Documentation
 ### POST /chat
 - **Description:** Chat with the HR assistant
@@ -133,4 +139,5 @@ User (Browser)
 
 ## Notes
 - The backend uses sentence-transformers for semantic search (RAG)
+
 - The frontend is a Streamlit chat interface with colored message bubbles and a custom background 
